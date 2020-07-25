@@ -10,6 +10,10 @@ spec:
         - host: ticketing.dev
           http: 
             paths:
+                - path: /api/payments/?(.*)
+                  backend:
+                    serviceName: payments-srv
+                    servicePort: 3000
                 - path: /api/users/?(.*)
                   backend:
                     serviceName: auth-srv
@@ -26,4 +30,5 @@ spec:
                   backend: 
                     serviceName: client-srv
                     servicePort: 3000
+                
           
