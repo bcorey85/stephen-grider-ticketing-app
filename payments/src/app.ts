@@ -16,11 +16,12 @@ app.use(
 );
 
 app.use(currentUser);
-app.use(errorHandler);
 app.use(createChargeRouter);
 
 app.all('*', () => {
 	throw new NotFoundError();
 });
+
+app.use(errorHandler);
 
 export { app };
